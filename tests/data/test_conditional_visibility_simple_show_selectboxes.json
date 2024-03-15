@@ -1,0 +1,15 @@
+{
+  "textField": "",
+  "maybePassword": "",
+  "jobArea": {
+    "finance": false,
+    "sales": false,
+    "technology": true
+  },
+  "submit": true,
+  "technology": {
+    "analyst": false,
+    "developer": true,
+    "devops": false
+  }
+}

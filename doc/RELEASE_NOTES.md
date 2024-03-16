@@ -1,6 +1,6 @@
-## Module <advanced_property_management>
+## Module <dynamic_accounts_report>
 
-#### 12.1.2024
-#### Version 16.0.1.0.0
+#### 12.12.2023
+#### Version 17.0.1.0.0
 #### ADD
-- Initial commit for Advanced Property Management
+- Initial commit for Dynamic Accounts  Reports

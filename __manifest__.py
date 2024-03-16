@@ -1,68 +1,99 @@
-# -*- coding: utf-8 -*-
-#############################################################################
-#
-#    Cybrosys Technologies Pvt. Ltd.
-#
-#    Copyright (C) 2023-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
-#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
-#
-#    You can modify it under the terms of the GNU LESSER
-#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
-#
-#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
-#    (LGPL v3) along with this program.
-#    If not, see <http://www.gnu.org/licenses/>.
-#
-#############################################################################
+# Copyright Nova Code (https://www.novacode.nl)
+# See LICENSE file for full licensing details.
+
 {
-    'name': "Advanced Property Management",
-    'version': '17.0.1.0.0',
-    'category': 'Industries',
-    'summary': """Manage your properties by selling, renting and bidding""",
-    'description': """The module makes it simple for you to manage
-     your properties""",
-    'author': "Cybrosys Techno Solutions",
-    'company': 'Cybrosys Techno Solutions',
-    'maintainer': 'Cybrosys Techno Solutions',
-    'website': 'https://cybrosys.com',
-    'depends': ['base', 'mail', 'sale_management', 'website',
-                'base_geolocalize'],
+    'name': 'Forms',
+    'summary': 'Form Builder for internal, portal, website and embedded forms, to collect any information you need for your business.',
+    'version': '17.0.1.3',
+    'license': 'LGPL-3',
+    'author': 'Nova Code',
+    'website': 'https://www.novaforms.app',
+    'live_test_url': 'https://demo17.novaforms.app',
+    'category': 'Forms/Forms',
+    'depends': [
+        'base',
+        'mail',
+        'portal',
+        'web',
+    ],
+    'application': True,
+    'installable': True,
+    'post_init_hook': 'post_init_hook',
+    'uninstall_hook': 'uninstall_hook',
     'data': [
-        'security/user_groups.xml',
-        'security/property_security.xml',
-        'security/ir.model.access.csv',
-        'data/ir_sequence_data.xml',
-        'data/advanced_property_management_data.xml',
+        # the ordering is important
+        'data/formio_builder_js_options_data.xml',
+        'data/formio_default_asset_css_data.xml',
+        'data/formio_version_data.xml',
+        'data/formio_asset_data.xml',
+        'data/formio_default_version_data.xml',
+        'data/ir_config_param.xml',
         'data/ir_cron_data.xml',
-        'views/property_property_views.xml',
-        'views/property_facility_views.xml',
-        'views/property_tag_views.xml',
-        'views/property_search_pannel_views.xml',
-        'views/property_templates.xml',
-        'views/property_commision_views.xml',
-        'views/property_sale_views.xml',
-        'views/property_rental_views.xml',
-        'views/res_partner_views.xml',
-        'views/rental_bill_views.xml',
-        'views/property_auction_views.xml',
-        'reports/property_sale_report.xml',
-        'reports/property_report.xml',
-        'wizards/property_sale_report_views.xml',
+        'data/mail_activity_data.xml',
+        'data/mail_template_data.xml',
+        # translations
+        'data/formio_translations_sources.xml',
+        'data/formio_translations_nl.xml',
+        'data/formio_translations_nl_BE.xml',
+        'data/formio_translations_pt_BR.xml',
+        'data/formio_translations_zh_CN.xml',
+        # security
+        'security/formio_security.xml',
+        'security/ir_model_access.xml',
+        'security/ir_rule.xml',
+        # views
+        'views/formio_builder_js_options_views.xml',
+        'views/formio_builder_translation_views.xml',
+        'views/formio_builder_views.xml',
+        'views/formio_form_views.xml',
+        'views/formio_license_views.xml',
+        'views/formio_res_model_views.xml',
+        'views/formio_translation_source_views.xml',
+        'views/formio_translation_views.xml',
+        'views/formio_version_github_tag_views.xml',
+        'views/formio_version_translation_views.xml',
+        'views/formio_version_views.xml',
+        'views/formio_menu.xml',
+        'views/res_config_settings_views.xml',
+        'views/res_lang_views.xml',
+        'views/ir_actions_views.xml',
+        'views/ir_attachment_views.xml',
+        'views/mail_activity_views.xml',
+        # formio templates
+        'views/formio_builder_templates.xml',
+        'views/formio_form_templates.xml',
+        'views/formio_portal_templates.xml',
+        'views/formio_public_templates.xml',
+        # wizards
+        'wizard/formio_version_github_checker_wizard.xml',
     ],
     'assets': {
+        'web.assets_backend': [
+            # builder
+            'formio/static/src/css/formio_builder.css',
+            'formio/static/src/js/views/formio_builder.xml',
+            'formio/static/src/js/views/formio_builder.js',
+            # form
+            'formio/static/src/css/formio_form.css',
+            'formio/static/src/js/views/formio_form.xml',
+            'formio/static/src/js/views/formio_form.js',
+            # misc
+            'formio/static/lib/iframe-resizer/iframeResizer.min.js'
+        ],
         'web.assets_frontend': [
-            'advanced_property_management/static/src/js/property_website.js',
-            'advanced_property_management/static/src/js/property_item.js',
+            'formio/static/src/css/formio_portal_form.css',
+            'formio/static/lib/iframe-resizer/iframeResizer.min.js',
+            'formio/static/src/js/formio_form_container.js'
+        ],
+        'web.assets_common': [
+            'formio/static/lib/noble-hashes.js',
+            'formio/static/lib/iframe-resizer/iframeResizer.min.js',
         ],
     },
-    'images': ['static/description/banner.jpg'],
-    'license': 'LGPL-3',
-    'installable': True,
-    'auto_install': False,
-    'application': True,
+    'demo': [
+        'data/formio_demo_data.xml',
+    ],
+    'images': [
+        'static/description/banner.png',
+    ]
 }

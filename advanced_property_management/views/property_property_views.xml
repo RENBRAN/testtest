@@ -47,7 +47,7 @@
                            statusbar_visible="draft,available"/>
                     <button name="action_available" string="Available"
                             type="object" class="btn-primary"
-                            attrs="{'invisible':[('state','!=','draft')]}"/>
+                            options="{'invisible':[('state','!=','draft')]}"/>
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">

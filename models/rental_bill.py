@@ -22,18 +22,19 @@
 from odoo import fields, models
 
 
-class ResPartner(models.Model):
-    """A class that inherits the already existing model res partner"""
-    _inherit = 'res.partner'
+class RentalBill(models.Model):
+    """A class for the model rental bills to represent
+    the related bills for a property rental"""
+    _name = 'rental.bill'
+    _description = 'Rental Bill'
 
-    blacklisted = fields.Boolean(string='Blacklisted', default=False,
-                                 help='Is this contact a blacklisted contact '
-                                      'or not')
-
-    def action_add_blacklist(self):
-        """Sets the field blacklisted to True"""
-        self.blacklisted = True
-
-    def action_remove_blacklist(self):
-        """Sets the field blacklisted to False"""
-        self.blacklisted = False
+    company_id = fields.Many2one('res.company', string='Company',
+                                 default=lambda self: self.env.company)
+    bill_no = fields.Char(string='Bill Number', required=True,
+                          help='The bill number of the bill')
+    name = fields.Char(string='Name', required=True,
+                       help='The name of the bill')
+    amount = fields.Float(string='Amount',
+                          help='The amount listed in the bill')
+    rental_id = fields.Many2one('property.rental', string='Property Rental',
+                                help='The corresponding Property Rental')

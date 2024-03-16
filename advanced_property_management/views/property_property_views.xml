@@ -54,15 +54,15 @@
                         <button name="action_get_map" string='Locate'
                                 type="object"
                                 class="oe_stat_button" icon="fa-map-marker"
-                                options="{'invisible':['|',('latitude','=',False),('longitude','=',False)]}"/>
+                                options="{('latitude','=',False),('longitude','=',False)]}"/>
                         <button name="action_property_sale_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Sale"
-                                options="{'invisible':[('state','!=','sold')]}"/>
+                                options="{[('state','!=','sold')]}"/>
                         <button name="action_property_rental_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Rental"
-                                options="{'invisible':[('state','!=','rented')]}"/>
+                                options="{('state','!=','rented')]}"/>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">

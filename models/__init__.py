@@ -1,23 +1,35 @@
-# Copyright Nova Code (http://www.novacode.nl)
-# See LICENSE file for full licensing details.
-
-from . import formio_builder
-from . import formio_builder_js_options
-from . import formio_builder_translation
-from . import formio_default_asset_css
-from . import formio_extra_asset
-from . import formio_form
-from . import formio_license
-from . import formio_res_model
-from . import formio_version
-from . import formio_version_asset
-from . import formio_version_translation
-from . import formio_version_github_tag
-from . import formio_translation_source
-from . import formio_translation
-from . import ir_actions
-from . import ir_attachment
-from . import ir_http
-from . import ir_view
-from . import res_config_settings
-from . import res_lang
+# -*- coding: utf-8 -*-
+#############################################################################
+#
+#    Cybrosys Technologies Pvt. Ltd.
+#
+#    Copyright (C) 2023-TODAY Cybrosys Technologies(<https://www.cybrosys.com>)
+#    Author: Cybrosys Techno Solutions(<https://www.cybrosys.com>)
+#
+#    You can modify it under the terms of the GNU LESSER
+#    GENERAL PUBLIC LICENSE (LGPL v3), Version 3.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU LESSER GENERAL PUBLIC LICENSE (LGPL v3) for more details.
+#
+#    You should have received a copy of the GNU LESSER GENERAL PUBLIC LICENSE
+#    (LGPL v3) along with this program.
+#    If not, see <http://www.gnu.org/licenses/>.
+#
+#############################################################################
+from . import account_move
+from . import property_area_measure
+from . import property_auction
+from . import property_auction_line
+from . import property_commission
+from . import property_facility
+from . import property_image
+from . import property_nearby_connectivity
+from . import property_property
+from . import property_rental
+from . import property_sale
+from . import property_tag
+from . import rental_bill
+from . import res_partner

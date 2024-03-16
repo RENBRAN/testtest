@@ -22,18 +22,18 @@
 from odoo import fields, models
 
 
-class ResPartner(models.Model):
-    """A class that inherits the already existing model res partner"""
-    _inherit = 'res.partner'
+class PropertyImages(models.Model):
+    """A class for the model property image to represent
+    the related images for a property"""
+    _name = 'property.image'
+    _description = 'Property Images'
 
-    blacklisted = fields.Boolean(string='Blacklisted', default=False,
-                                 help='Is this contact a blacklisted contact '
-                                      'or not')
-
-    def action_add_blacklist(self):
-        """Sets the field blacklisted to True"""
-        self.blacklisted = True
-
-    def action_remove_blacklist(self):
-        """Sets the field blacklisted to False"""
-        self.blacklisted = False
+    name = fields.Char(string='Name', required=True,
+                       help='Name for the given image')
+    description = fields.Text(string='Description',
+                              help='A brief description of the image given')
+    image = fields.Binary(string='Image', required=True,
+                          help='The properties image')
+    property_id = fields.Many2one('property.property',
+                                  string='Property',
+                                  help='Related property')

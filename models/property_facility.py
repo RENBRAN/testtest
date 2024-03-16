@@ -22,18 +22,12 @@
 from odoo import fields, models
 
 
-class ResPartner(models.Model):
-    """A class that inherits the already existing model res partner"""
-    _inherit = 'res.partner'
+class PropertyFacility(models.Model):
+    """A class for the model property facilities to represent
+    the related facilities for a property"""
+    _name = 'property.facility'
+    _description = 'Property Facility'
+    _rec_name = 'facility'
 
-    blacklisted = fields.Boolean(string='Blacklisted', default=False,
-                                 help='Is this contact a blacklisted contact '
-                                      'or not')
-
-    def action_add_blacklist(self):
-        """Sets the field blacklisted to True"""
-        self.blacklisted = True
-
-    def action_remove_blacklist(self):
-        """Sets the field blacklisted to False"""
-        self.blacklisted = False
+    facility = fields.Text(string='Facility', required=True,
+                           help='Facilities of the property')

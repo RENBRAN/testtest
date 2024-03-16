@@ -22,18 +22,11 @@
 from odoo import fields, models
 
 
-class ResPartner(models.Model):
-    """A class that inherits the already existing model res partner"""
-    _inherit = 'res.partner'
+class PropertyTag(models.Model):
+    """A class for the model property tags to represent
+    the related tags for a property"""
+    _name = 'property.tag'
+    _description = 'Property Tag'
+    _rec_name = 'tag'
 
-    blacklisted = fields.Boolean(string='Blacklisted', default=False,
-                                 help='Is this contact a blacklisted contact '
-                                      'or not')
-
-    def action_add_blacklist(self):
-        """Sets the field blacklisted to True"""
-        self.blacklisted = True
-
-    def action_remove_blacklist(self):
-        """Sets the field blacklisted to False"""
-        self.blacklisted = False
+    tag = fields.Char(string='Tag', required=True, help='Name of the tag')

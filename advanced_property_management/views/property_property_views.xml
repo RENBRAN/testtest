@@ -47,22 +47,22 @@
                            statusbar_visible="draft,available"/>
                     <button name="action_available" string="Available"
                             type="object" class="btn-primary"
-                            options="{'invisible':[('state','!=','draft')]}"/>
+                            options="{('state','!=','draft')}"/>
                 </header>
                 <sheet>
                     <div name="button_box" class="oe_button_box">
                         <button name="action_get_map" string='Locate'
                                 type="object"
                                 class="oe_stat_button" icon="fa-map-marker"
-                                attrs="{'invisible':['|',('latitude','=',False),('longitude','=',False)]}"/>
+                                options="{'invisible':['|',('latitude','=',False),('longitude','=',False)]}"/>
                         <button name="action_property_sale_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Sale"
-                                attrs="{'invisible':[('state','!=','sold')]}"/>
+                                options="{'invisible':[('state','!=','sold')]}"/>
                         <button name="action_property_rental_view" type="object"
                                 class="oe_stat_button"
                                 icon="fa-dollar" string="Rental"
-                                attrs="{'invisible':[('state','!=','rented')]}"/>
+                                options="{'invisible':[('state','!=','rented')]}"/>
                     </div>
                     <field name="image" widget="image" class="oe_avatar"/>
                     <div class="oe_title">
